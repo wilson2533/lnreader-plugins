@@ -65,7 +65,7 @@ class XinShu69 implements Plugin.PluginBase {
     const novel: Plugin.SourceNovel = {
       path: novelPath,
       chapters: [],
-      name: loadedCheerio('h1 > a').text(),
+      name: loadedCheerio('h3 > a').text(),
     };
 
     novel.cover = loadedCheerio('div.bookimg2 > img').attr('src');
