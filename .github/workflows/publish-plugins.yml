@@ -13,6 +13,21 @@ on:
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
+name: Publish Plugins
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'plugins/**'
+      - 'public/**'
+      - 'scripts/publish-plugins.sh'
+      - '.github/workflows/publish-plugins.yml'
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
   publish:
@@ -40,6 +55,13 @@ jobs:
       - name: Publish Plugins (Main Repository)
         if: github.repository == 'LNReader/lnreader-plugins'
         run: npm run publish:plugins 2>> $GITHUB_STEP_SUMMARY
+        shell: bash
+
+      - name: Publish Plugins (Fork - All Branches)
+        if: github.repository != 'LNReader/lnreader-plugins'
+        run: npm run publish:plugins -- --all-branches
+        shell: bash
+sh:plugins 2>> $GITHUB_STEP_SUMMARY
         shell: bash
 
       - name: Publish Plugins (Fork - All Branches)
