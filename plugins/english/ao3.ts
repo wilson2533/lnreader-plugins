@@ -8,7 +8,7 @@ class ArchiveOfOurOwn implements Plugin.PluginBase {
   id = 'archiveofourown';
   name = 'Archive Of Our Own';
   version = '1.0.3';
-  icon = 'src/en/ao3/icon.png';
+  icon = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9LSnlLcNS6ckTGlvKEMaP6HwdKVCjYtaURDSOKoQekg&s=10';
   site = 'https://archiveofourown.org/';
 
   parseNovels(loadedCheerio: CheerioAPI): Plugin.NovelItem[] {
